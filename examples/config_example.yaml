@@ -1,0 +1,59 @@
+# Windows AI Assistant - Configuration Example
+# Copy this to src/windows_ai/config.yaml and customize as needed
+
+desktop_awareness:
+  # Frames per second for screen capture (lower = less CPU)
+  capture_fps: 10
+  
+  # Motion detection threshold (0.0-1.0)
+  # 0.03 = 3% pixel change triggers motion event
+  motion_threshold: 0.03
+  
+  # Seconds between window title checks
+  window_check_interval: 2
+  
+  # Minimum seconds between LLM queries (prevents spam)
+  llm_cooldown: 5
+  
+  # Regions to ignore (x1, y1, x2, y2)
+  # Example: Ignore taskbar at bottom of 1080p screen
+  ignore_regions:
+    - [0, 1000, 1920, 1080]  # Taskbar (adjust for your resolution)
+
+audio_awareness:
+  # Loud noise detection threshold in decibels
+  # 60dB = normal conversation
+  threshold_db: 60.0
+  
+  # Alert after X seconds of silence (300 = 5 minutes)
+  silence_timeout: 300
+  
+  # Audio sample rate in Hz
+  sample_rate: 16000
+  
+  # Audio device index (None = default)
+  # Run: python -m src.windows_ai.audio_awareness --list-devices
+  device_index: null
+
+ollama:
+  # Model to use for event analysis
+  model: gemma3:4b
+  
+  # Request timeout in seconds
+  timeout: 30
+  
+  # Temperature for LLM (lower = more deterministic)
+  temperature: 0.1
+  
+  # Ollama API endpoint
+  endpoint: http://localhost:11434/api/chat
+
+fast_path:
+  # Deterministic actions that don't require LLM
+  deterministic_actions:
+    - start_menu
+    - alt_tab
+    - taskbar_click
+  
+  # Target response time in milliseconds
+  response_time_ms: 100
