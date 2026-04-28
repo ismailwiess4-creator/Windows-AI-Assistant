@@ -1,0 +1,31 @@
+# Desktop Awareness Configuration
+awareness:
+  # Lower FPS = Less CPU usage, but less responsive
+  # Recommended: 5-10 FPS for LSTC (optimized for background services)
+  capture_fps: 8
+  
+  # Motion sensitivity (0.01 = 1% change triggers detection)
+  # Increase if getting false positives
+  motion_threshold: 0.025
+  
+  # How often to check active window (seconds)
+  window_check_interval: 0.5
+  
+  # Minimum seconds between LLM queries
+  # Prevents spamming Ollama
+  llm_cooldown: 3.0
+
+# Ollama settings
+ollama:
+  model: "gemma3:4b"
+  timeout: 5
+  temperature: 0.1
+  
+# Fast path shortcuts (no LLM needed)
+fast_path:
+  enabled: true
+  # If motion detected in these regions, use deterministic response
+  regions:
+    start_menu: [0, 800, 100, 200]  # x, y, w, h
+    taskbar: [0, 1000, 1920, 80]
+    system_tray: [1800, 1000, 120, 80]
