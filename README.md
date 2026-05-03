@@ -151,7 +151,7 @@ MIT License — Use, modify, distribute freely. Credit appreciated.
 
 ## 👤 Built by
 
-**Ismail Wiess** — Refugee, engineer, seeker of dignity.  
+**Ismail Wiess** — engineer, seeker of dignity.  
 📍 Belgium | 🌍 Multipolar, privacy-first, open-source
 
 *Inspired by a mother's last prayer: "God help and bless me and make my project work."*
